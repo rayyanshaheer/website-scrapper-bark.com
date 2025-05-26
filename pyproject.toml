@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bark-contact-scraper"
+version = "2.0.0"
+description = "Professional web scraper for extracting service provider contact information from Bark.com"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "rayyanshaheer", email = "rayyanshaheer2@gmail.com"}
+]
+keywords = [
+    "web-scraping",
+    "bark.com",
+    "contact-extraction",
+    "service-providers",
+    "data-mining"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities"
+]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "selenium>=4.15.0",
+    "pandas>=2.0.0",
+    "tqdm>=4.66.0",
+    "lxml>=4.9.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/Cryt-Software/Bark-company-scraper"
+Repository = "https://github.com/Cryt-Software/Bark-company-scraper"
+Issues = "https://github.com/Cryt-Software/Bark-company-scraper/issues"
+Documentation = "https://github.com/Cryt-Software/Bark-company-scraper/blob/main/docs/README.md"
+
+[project.scripts]
+bark-scraper = "src.scraper_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
